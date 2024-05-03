@@ -1,5 +1,17 @@
 /* eslint-disable react/prop-types */
+
+import { useState } from 'react';
+
 export function TwitterFollowCard(props) {
+    const [isFollowing, setIsFollowing] = useState(props.)
+
+
+    const text = isFollowing ? 'Siguiendo' : 'Seguir'
+    const buttonClassName = isFollowing ? 'tw-followCard-button is-following' : 'tw-followCard-button'
+
+    const handleClick = () => {
+        setIsFollowing(!isFollowing)
+    }
 
     return (
         <article className='tw-followCard'>
@@ -11,8 +23,9 @@ export function TwitterFollowCard(props) {
                 </div>
             </header>
             <aside>
-                <button className='tw-followCard-button'>
-                    Seguir
+                <button className={buttonClassName} onClick={handleClick}>
+                    <span className='tw-followCard-text'>{text}</span>
+                    <span className='tw-followCard-stopFollow'>Dejar de seguir</span>
                 </button>
             </aside>
         </article>
