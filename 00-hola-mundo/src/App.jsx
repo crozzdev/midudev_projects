@@ -25,16 +25,10 @@ export function App() {
 
     return (
         <div className='App'>
-            <TwitterFollowCard userName="midudev">
-                Miguel Angel Durán
-            </TwitterFollowCard>
-            <TwitterFollowCard userName="pheralb">
-                Pablo Hernandez
-            </TwitterFollowCard>
-            <TwitterFollowCard userName="juantvel95">
-                Juan David Toro
-            </TwitterFollowCard>
-            <TwitterFollowCard />
+
+            {users.map(({ userName, name, isFollowing }) => (
+                <TwitterFollowCard key={userName} initialState={isFollowing} name={name} userName={userName} />
+            ))}
         </div>
     )
 }

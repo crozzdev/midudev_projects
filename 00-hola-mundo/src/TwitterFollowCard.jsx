@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 
-export function TwitterFollowCard(props) {
-    const [isFollowing, setIsFollowing] = useState(props.)
+export function TwitterFollowCard({ initialState, ...props }) {
+    const [isFollowing, setIsFollowing] = useState(initialState)
 
 
     const text = isFollowing ? 'Siguiendo' : 'Seguir'
@@ -18,7 +18,7 @@ export function TwitterFollowCard(props) {
             <header className='tw-followCard-header'>
                 <img className='tw-followCard-avatar' src={`https://unavatar.io/${props.userName}`} alt={`El avatar de ${props.userName}`} />
                 <div className='tw-followCard-info'>
-                    <strong>{props.children}</strong>
+                    <strong>{props.name}</strong>
                     <span className='tw-followCard-infoUserName'>@{props.userName}</span>
                 </div>
             </header>
