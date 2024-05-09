@@ -5,6 +5,8 @@ function App() {
   const [enabled, setEnabled] = useState(false)
   const [position, setPosition] = useState({ x: 0, y: 0 })
 
+
+  // follow mouse effect
   useEffect(() => {
     console.log('effect', { enabled })
 
@@ -26,6 +28,16 @@ function App() {
     }
 
   }, [enabled])
+
+
+  // change pointer effect
+
+  useEffect(() => {
+    document.body.classList.toggle('no-cursor', enabled)
+
+  }, [enabled])
+
+
 
   return (
     <main>
