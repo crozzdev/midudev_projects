@@ -29,11 +29,16 @@ function App() {
 
   }, [enabled])
 
+  // [] -> Solo se ejecuta una vez cuando el componente es montado7
+  // [enabled] -> Se ejecuta cuando cambia enabled y cuando se monta el componente
+  // undefined -> Se ejecuta cada vez que el componente es renderizado
+
 
   // change pointer effect
-
   useEffect(() => {
     document.body.classList.toggle('no-cursor', enabled)
+
+    return () => { document.body.classList.remove('no-cursor') }
 
   }, [enabled])
 
